@@ -1,0 +1,6 @@
+{
+  "name": "Aether Cinematic Portfolio",
+  "description": "A premium, motion-first cinematic portfolio website featuring elegant glassmorphism, mouse-reactive particle fields, 3D card tilt effects, and high-fidelity typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
