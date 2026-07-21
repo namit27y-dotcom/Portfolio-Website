@@ -243,10 +243,33 @@ PROJECTS:
         {/* Subtitle description with slide up entry delay */}
         <p
           style={{ animationDelay: prefersReduced ? "0ms" : "0.5s" }}
-          className="font-sans text-neutral-400 text-sm sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed opacity-0 animate-[fade-slide-up_1s_cubic-bezier(0.16,1,0.3,1)_forwards] mix-blend-screen"
+          className="font-sans text-neutral-400 text-sm sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed opacity-0 animate-[fade-slide-up_1s_cubic-bezier(0.16,1,0.3,1)_forwards] mix-blend-screen"
         >
           I'm <strong className="text-white font-medium">Namit Yadav</strong>, a Computer Science student passionate about building responsive web applications, solving real-world problems, and continuously learning modern technologies including AI, Machine Learning, and Full Stack Development.
         </p>
+
+        {/* Professional Status Badges */}
+        <div
+          style={{ animationDelay: prefersReduced ? "0ms" : "0.55s" }}
+          className="flex flex-wrap items-center justify-center gap-3 mb-10 max-w-2xl mx-auto opacity-0 animate-[fade-slide-up_1s_cubic-bezier(0.16,1,0.3,1)_forwards]"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all hover:border-white/10 hover:scale-102 duration-300 shadow-sm">
+            <span className="text-sm">📍</span>
+            <span className="text-[10px] font-mono font-bold text-neutral-300 uppercase tracking-widest">Mumbai, India</span>
+          </div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all hover:border-white/10 hover:scale-102 duration-300 shadow-sm">
+            <span className="text-sm">🌍</span>
+            <span className="text-[10px] font-mono font-bold text-neutral-300 uppercase tracking-widest">Open Worldwide</span>
+          </div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all hover:border-white/10 hover:scale-102 duration-300 shadow-sm">
+            <span className="text-sm">💼</span>
+            <span className="text-[10px] font-mono font-bold text-neutral-300 uppercase tracking-widest">Full-Time Opportunities</span>
+          </div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all hover:border-white/10 hover:scale-102 duration-300 shadow-sm">
+            <span className="text-sm">✈️</span>
+            <span className="text-[10px] font-mono font-bold text-neutral-300 uppercase tracking-widest">Willing to Relocate</span>
+          </div>
+        </div>
 
         {/* Call to Actions with glow borders, magnets and premium transitions */}
         <div

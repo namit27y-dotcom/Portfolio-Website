@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Sparkles, Terminal, Palette, BrainCircuit, Component } from "lucide-react";
 import { Skill } from "../types";
 import RevealOnScroll from "./RevealOnScroll";
+import SkillsVisualizer from "./SkillsVisualizer";
 
 const SKILLS_DATA: Skill[] = [
   // Category: Frontend
@@ -156,7 +157,7 @@ export default function Skills() {
         </RevealOnScroll>
 
         {/* Dynamic skills visual panel */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
           {filteredSkills.map((skill, index) => (
             <div key={skill.name}>
               <RevealOnScroll delay={index * 50} duration={800}>
@@ -165,6 +166,11 @@ export default function Skills() {
             </div>
           ))}
         </div>
+
+        {/* Dynamic Skills Radar Matrix */}
+        <RevealOnScroll delay={150}>
+          <SkillsVisualizer />
+        </RevealOnScroll>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { Sparkles, GraduationCap, Award, BookOpen, Calendar, MapPin, CheckCircle } from "lucide-react";
 import RevealOnScroll from "./RevealOnScroll";
+import TechRoadmap from "./TechRoadmap";
 
 export default function EducationAndCertifications() {
   const educationItems = [
@@ -134,6 +135,13 @@ export default function EducationAndCertifications() {
               </RevealOnScroll>
               </div>
             ))}
+          </div>
+
+          {/* Interactive Knowledge Roadmap */}
+          <div className="mt-28">
+            <RevealOnScroll duration={1000}>
+              <TechRoadmap />
+            </RevealOnScroll>
           </div>
 
         </div>

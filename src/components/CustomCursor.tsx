@@ -185,7 +185,7 @@ export default function CustomCursor() {
       {/* Outer Lag Ring */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-electric-glow/30 pointer-events-none z-[9999] flex items-center justify-center transition-all duration-300 mix-blend-screen"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-electric-glow/30 pointer-events-none z-[9999] flex items-center justify-center transition-all duration-150 mix-blend-screen"
       >
         <span
           ref={textRef}

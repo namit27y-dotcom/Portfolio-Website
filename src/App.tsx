@@ -21,6 +21,11 @@ import ExperienceTimeline from "./components/Experience";
 import Contact from "./components/Contact";
 import SectionDivider from "./components/SectionDivider";
 import { ToastProvider } from "./components/Toast";
+import RevealOnScroll from "./components/RevealOnScroll";
+import TerminalConsole from "./components/TerminalConsole";
+import FocusSoundboard from "./components/FocusSoundboard";
+import Guestbook from "./components/Guestbook";
+import { Terminal } from "lucide-react";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -45,32 +50,85 @@ export default function App() {
             <SectionDivider variant="pulse" glowColor="cyan" />
 
             {/* Detailed Biographical Background */}
-            <About />
+            <RevealOnScroll direction="up" duration={1000}>
+              <About />
+            </RevealOnScroll>
+
+            <SectionDivider variant="tech" glowColor="cyan" />
+
+            {/* Interactive Terminal Shell */}
+            <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 relative z-10">
+              <RevealOnScroll direction="up" duration={1000}>
+                <div className="flex flex-col items-center text-center mb-12">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 mb-4">
+                    <Terminal className="w-3.5 h-3.5 text-neon-cyan" />
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-neon-cyan">
+                      SECURE TUNNEL
+                    </span>
+                  </div>
+                  <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+                    INTERACTIVE TERMINAL CONSOLE
+                  </h2>
+                  <p className="text-neutral-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                    Execute low-level environment checks, parse skills, and activate live immersive canvas matrices.
+                  </p>
+                </div>
+                <TerminalConsole />
+              </RevealOnScroll>
+            </div>
 
             <SectionDivider variant="wave" glowColor="purple" />
 
             {/* Technical Stack Dashboard */}
-            <Skills />
+            <RevealOnScroll direction="up" duration={1000}>
+              <Skills />
+            </RevealOnScroll>
 
             <SectionDivider variant="tech" glowColor="cyan" />
 
             {/* Selected Case Studies */}
-            <Projects />
+            <RevealOnScroll direction="up" duration={1000}>
+              <Projects />
+            </RevealOnScroll>
 
             <SectionDivider variant="pulse" glowColor="purple" />
 
             {/* Education and Verified Certifications */}
-            <EducationAndCertifications />
+            <RevealOnScroll direction="up" duration={1000}>
+              <EducationAndCertifications />
+            </RevealOnScroll>
 
             <SectionDivider variant="wave" glowColor="cyan" />
 
             {/* Career Timeline Progress */}
-            <ExperienceTimeline />
+            <RevealOnScroll direction="up" duration={1000}>
+              <ExperienceTimeline />
+            </RevealOnScroll>
+
+            <SectionDivider variant="tech" glowColor="cyan" />
+
+            {/* Focus Soundboard Section */}
+            <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 relative z-10">
+              <RevealOnScroll direction="up" duration={1000}>
+                <FocusSoundboard />
+              </RevealOnScroll>
+            </div>
+
+            <SectionDivider variant="pulse" glowColor="purple" />
+
+            {/* Guestbook Visitor Register */}
+            <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 relative z-10">
+              <RevealOnScroll direction="up" duration={1000}>
+                <Guestbook />
+              </RevealOnScroll>
+            </div>
 
             <SectionDivider variant="tech" glowColor="purple" />
 
             {/* Form Transmission Panel */}
-            <Contact />
+            <RevealOnScroll direction="up" duration={1000}>
+              <Contact />
+            </RevealOnScroll>
           </main>
 
           {/* Footer Grid */}
