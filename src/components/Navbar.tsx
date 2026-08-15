@@ -80,36 +80,51 @@ export default function Navbar() {
     };
   }, []);
 
-  // Smooth scroll handler
-  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+  // Custom smooth-scroll function replacing standard browser navigation
+  const scrollToSection = (targetId: string) => {
+    const cleanId = targetId.replace(/^#/, "");
     setIsMobileMenuOpen(false);
-    const id = href.substring(1);
-    
-    // Set instantly for immediate, responsive visual feedback
-    setActiveSection(id);
-    
-    // Suppress observer callbacks while smooth scrolling
+    setActiveSection(cleanId);
+
+    // Suppress observer callbacks during programmatic scroll
     isProgrammaticScroll.current = true;
     if (scrollTimeoutRef.current) {
       window.clearTimeout(scrollTimeoutRef.current);
     }
 
-    const element = document.getElementById(id);
-    if (element) {
-      const navHeight = isScrolled ? 64 : 88;
-      const rect = element.getBoundingClientRect();
-      const targetPosition = rect.top + window.scrollY - navHeight;
+    if (cleanId === "home") {
       window.scrollTo({
-        top: targetPosition,
+        top: 0,
         behavior: "smooth",
       });
-
-      // Clear lock state after typical scroll duration finishes
-      scrollTimeoutRef.current = window.setTimeout(() => {
-        isProgrammaticScroll.current = false;
-      }, 800);
+    } else {
+      const element = document.getElementById(cleanId);
+      if (element) {
+        const navHeight = isScrolled ? 64 : 88;
+        const rect = element.getBoundingClientRect();
+        const elementOffset = rect.top + window.scrollY - navHeight;
+        window.scrollTo({
+          top: Math.max(0, elementOffset),
+          behavior: "smooth",
+        });
+      }
     }
+
+    // Maintain consistent URL hash without triggering default jump/reload
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, "", `#${cleanId}`);
+    }
+
+    // Clear lock state after smooth scroll finishes
+    scrollTimeoutRef.current = window.setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 850);
+  };
+
+  // Click handler that prevents default browser navigation and executes custom smooth-scroll
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    scrollToSection(href);
   };
 
   return (

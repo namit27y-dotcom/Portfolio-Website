@@ -48,7 +48,7 @@ const ROADMAP_NODES: RoadmapNode[] = [
       tech: "Java Core, Swing UI, AWT Graphics Engine"
     },
     credential: {
-      title: "First Year B.Tech Computer Engineering Grade Card",
+      title: "First Year Bachelor of Engineering (B.E.) Grade Card",
       issuer: "Pillai College of Engineering (University of Mumbai)",
       id: "SGPI: 9.05 / CGPA Master",
       date: "May 2026",

@@ -35,7 +35,7 @@ const EXPERIENCES: Experience[] = [
     role: "Student Developer",
     company: "Pillai College of Engineering",
     period: "2025 — PRESENT",
-    description: "Mastering fundamental elements of computer science, responsive page layouts, and async data flows as a B.Tech Computer Science student.",
+    description: "Mastering fundamental elements of computer engineering, responsive page layouts, and async data flows as a Bachelors of Engineering (B.E.) student.",
     highlights: [
       "Acquired rich competencies in HTML5, CSS3, ES6+ JavaScript, and responsive design parameters.",
       "Practiced structural Git/GitHub workflows, branching, and repository code-management protocols.",

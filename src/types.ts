@@ -23,7 +23,7 @@ export interface Experience {
 export interface Skill {
   name: string;
   level: number; // 0-100
-  category: "Frontend" | "Programming" | "Dev Tools" | "Future Learning";
+  category: "Frontend" | "Programming" | "Backend" | "Dev Tools" | "Future Learning";
 }
 
 export interface ContactFormData {

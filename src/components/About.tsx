@@ -63,12 +63,12 @@ export default function About() {
                 
                 <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center gap-2">
                   <GraduationCap className="w-6 h-6 text-electric-glow" />
-                  Computer Science Undergrad
+                  Bachelors of Engineering Undergrad
                 </h3>
                 
                 <div className="space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed">
                   <p>
-                    I am currently a 2nd-year student pursuing my B.Tech in Computer Science at Pillai College of Engineering, New Panvel (graduating in 2029), building a robust mathematical and architectural foundation. My academic studies focus heavily on Data Structures, Object-Oriented Principles, Database Systems, and Algorithmic Efficiency.
+                    I am currently a 2nd-year student pursuing my Bachelors of Engineering (B.E.) in Computer Engineering at Pillai College of Engineering, New Panvel (graduating in 2029), building a robust mathematical and architectural foundation. My academic studies focus heavily on Data Structures, Object-Oriented Principles, Database Systems, and Algorithmic Efficiency.
                   </p>
                   <p>
                     Outside the lecture hall, I dedicate my energy to exploring modern web ecosystems and full-stack software development. By building highly responsive clone projects, ATS-optimized recruitment tools, and dynamic calculation panels, I gain deep experience in asynchronous JavaScript, Fetch API structures, and browser DOM control mechanisms.

@@ -23,7 +23,7 @@ const PREPOPULATED_ENTRIES: GuestbookEntry[] = [
   {
     id: "pre-2",
     name: "Dr. K. Sharma",
-    badge: "B.Tech Academics",
+    badge: "B.E. Academics",
     glowColor: "blue",
     message: "Namit demonstrates superior diligence in his computer science coursework. His grasp of Java OOP structure is highly refined.",
     timestamp: "June 24, 2026"

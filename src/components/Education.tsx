@@ -5,15 +5,15 @@ import TechRoadmap from "./TechRoadmap";
 export default function EducationAndCertifications() {
   const educationItems = [
     {
-      degree: "Bachelor of Technology (B.Tech) in Computer Science",
+      degree: "Bachelor of Engineering (B.E.) in Computer Engineering",
       institution: "Pillai College of Engineering, New Panvel",
       period: "2025 — 2029 (Expected)",
       location: "New Panvel, Navi Mumbai",
-      description: "Rigorous scientific curriculum centered around structural algorithms, computing platforms, and modular systems software. Currently in 2nd Year (as of 2026).",
+      description: "Rigorous Bachelors of Engineering curriculum centered around structural algorithms, computing platforms, and modular systems software. Currently in 2nd Year (as of 2026).",
       highlights: [
         "Core Coursework: Data Structures & Algorithms, OOP (Java & Python), DBMS (MySQL), Web Architecture.",
         "Maintained strong academic performance, placing in the top tier of competitive coding forums.",
-        "Active member of the Student Computer Science Society and Collaborative Developer Forum."
+        "Active member of the Student Computer Engineering Society and Collaborative Developer Forum."
       ]
     }
   ];

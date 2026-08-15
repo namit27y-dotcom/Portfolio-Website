@@ -98,20 +98,22 @@ export default function Hero() {
   const copyResumeToClipboard = () => {
     const text = `NAMIT YADAV
 namit27y@gmail.com | github.com/namit27y-dotcom | linkedin.com/in/namit-yadav-b3516b392
-B.Tech Computer Science student at Pillai College of Engineering, New Panvel
+Bachelors of Engineering (B.E.) in Computer Engineering student at Pillai College of Engineering, New Panvel
 
 TECHNICAL SKILLS:
-- Frontend: HTML5, CSS3, JavaScript (ES6+), React.js Core, Tailwind CSS, Responsive Web Design
-- Programming Languages: Java, Python, Async Promises, OOP Concepts
+- Languages & Core: Python, JavaScript (ES6+), TypeScript, Java (OOP)
+- Frontend: React.js, Tailwind CSS, HTML5, CSS3, Responsive UI/UX
+- Backend & Frameworks: Node.js, Express.js, RESTful APIs, Async Fetch
+- Data & Analytics: NumPy, Pandas, Data Structures & Algorithms
 - Database: MySQL
 - Tools: Git, GitHub, VS Code, IntelliJ IDEA
-- Currently Learning: NumPy, Pandas, AI/ML Fundamentals
 
 PROJECTS:
-- AI Resume Builder (ATS-Friendly): Parsing credentials, generating ATS keywords with Gemini SDK.
-- Currency Converter Web App: Dynamic REST exchange rates pulled via Async Fetch.
+- AI Resume Builder (ATS-Friendly): Parsing credentials, generating ATS keywords with Gemini SDK & React.
+- Currency Converter Web App: Dynamic REST exchange rates pulled via Async Fetch & Node.js backend.
+- Express & React REST Pipelines: Modular API architecture with secure routing.
 - Amazon Clone: Responsive HTML/CSS flexbox recreations.
-- Turtle Simulators: Python visual retro clocks and game engines.`;
+- Python Simulators: NumPy/Pandas math models, visual retro clocks, and game engines.`;
     navigator.clipboard.writeText(text);
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 2000);
@@ -192,7 +194,7 @@ PROJECTS:
                   NY
                 </span>
                 <span className="font-mono text-[7px] text-electric-glow uppercase tracking-[0.25em] mt-1 font-bold">
-                  B.Tech CS
+                  B.E. CS
                 </span>
               </div>
               
@@ -395,7 +397,7 @@ PROJECTS:
                     Namit Yadav
                   </h1>
                   <p className="text-sm font-medium tracking-wide text-neutral-600 mb-2">
-                    B.Tech Computer Science Student | Aspiring Software Engineer
+                    Bachelors of Engineering (B.E.) Student | Aspiring Software Engineer
                   </p>
                   <div className="flex justify-center flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-neutral-500">
                     <span>Email: namit27y@gmail.com</span>
@@ -415,16 +417,20 @@ PROJECTS:
                       </h2>
                       <div className="flex flex-col gap-3">
                         <div>
-                          <h3 className="text-xs font-semibold text-neutral-800 uppercase">Frontend</h3>
-                          <p className="text-xs text-neutral-600 mt-0.5 leading-relaxed">HTML5, CSS3, JavaScript (ES6+), React.js, Tailwind CSS, Responsive UI/UX</p>
+                          <h3 className="text-xs font-semibold text-neutral-800 uppercase">Languages & Core</h3>
+                          <p className="text-xs text-neutral-600 mt-0.5 leading-relaxed">Python, JavaScript (ES6+), TypeScript, Java OOP</p>
                         </div>
                         <div>
-                          <h3 className="text-xs font-semibold text-neutral-800 uppercase">Core Languages</h3>
-                          <p className="text-xs text-neutral-600 mt-0.5 leading-relaxed">Java, Python, Object-Oriented Programming (OOP)</p>
+                          <h3 className="text-xs font-semibold text-neutral-800 uppercase">Frontend & UI</h3>
+                          <p className="text-xs text-neutral-600 mt-0.5 leading-relaxed">React.js, Tailwind CSS, HTML5, CSS3, Responsive Layouts</p>
                         </div>
                         <div>
-                          <h3 className="text-xs font-semibold text-neutral-800 uppercase">Databases</h3>
-                          <p className="text-xs text-neutral-600 mt-0.5 leading-relaxed">MySQL schemas, relational queries</p>
+                          <h3 className="text-xs font-semibold text-neutral-800 uppercase">Backend & APIs</h3>
+                          <p className="text-xs text-neutral-600 mt-0.5 leading-relaxed">Node.js, Express.js, REST APIs, Async Pipelines</p>
+                        </div>
+                        <div>
+                          <h3 className="text-xs font-semibold text-neutral-800 uppercase">Data & Analytics</h3>
+                          <p className="text-xs text-neutral-600 mt-0.5 leading-relaxed">NumPy, Pandas, MySQL schemas, Algorithmic models</p>
                         </div>
                         <div>
                           <h3 className="text-xs font-semibold text-neutral-800 uppercase">Development Tools</h3>
@@ -438,7 +444,7 @@ PROJECTS:
                         Education
                       </h2>
                       <div>
-                        <h3 className="text-sm font-bold text-neutral-800">B.Tech Computer Science</h3>
+                        <h3 className="text-sm font-bold text-neutral-800">Bachelors of Engineering (B.E.)</h3>
                         <p className="text-xs text-neutral-500 font-medium">Pillai College of Engineering, New Panvel</p>
                         <p className="text-xs text-neutral-400 mt-1">2025 — 2029 (Expected) • 2nd Year</p>
                       </div>

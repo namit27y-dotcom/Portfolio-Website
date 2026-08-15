@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Cpu, Code, Database, Sparkles, Award } from "lucide-react";
+import { getTechIcon } from "./TechIcons";
 
 interface SkillDetail {
   name: string;
@@ -11,14 +12,17 @@ interface SkillDetail {
 }
 
 const DETAILED_SKILLS: SkillDetail[] = [
+  { name: "Python", category: "Languages", level: 90, years: "2.5 years", projectsCount: 14, description: "Mastering Python syntax, object-oriented concepts, algorithms, automation scripting, and scientific data manipulation." },
+  { name: "NumPy", category: "Data & Math", level: 85, years: "2 years", projectsCount: 8, description: "High-performance multidimensional array math, matrix transformations, linear algebra, vector operations, and numerical broadcasting." },
+  { name: "Pandas", category: "Data Analysis", level: 84, years: "2 years", projectsCount: 9, description: "Structured data wrangling with DataFrames/Series, dataset cleansing, exploratory statistics, grouping aggregations, and CSV/JSON pipelines." },
+  { name: "Node.js", category: "Backend", level: 86, years: "2 years", projectsCount: 12, description: "Asynchronous event-driven JavaScript server environments, non-blocking I/O routines, REST micro-services, and npm tooling." },
+  { name: "React.js", category: "Frontend", level: 92, years: "2.5 years", projectsCount: 18, description: "Component-driven reactive architectures, hooks state synchronization, custom hooks, dynamic rendering optimizations, and Tailwind integration." },
+  { name: "Express.js", category: "Backend", level: 85, years: "2 years", projectsCount: 11, description: "Minimalist and robust backend routing, REST API middleware architectures, request/response validation pipelines, and JSON API engines." },
+  { name: "MongoDB", category: "Databases", level: 85, years: "2 years", projectsCount: 8, description: "Flexible document-based collections, aggregation pipelines, dynamic indexing, and seamless integration with Mongoose & Express." },
+  { name: "MySQL & SQL", category: "Databases", level: 84, years: "2 years", projectsCount: 10, description: "Relational schemas, transactional queries, indexing, foreign keys, and connecting databases with REST/Node pipelines." },
   { name: "Java Core & OOP", category: "Languages", level: 90, years: "3 years", projectsCount: 14, description: "Highly proficient in Java 17+, complex object-oriented patterns, multithreading, modular code design, and data structures." },
-  { name: "Python Scripting", category: "Languages", level: 85, years: "2 years", projectsCount: 9, description: "Leveraged for algorithm prototyping, automated scripting, matrix algebra (NumPy), and data transformations (Pandas)." },
-  { name: "TypeScript", category: "Languages", level: 82, years: "1.5 years", projectsCount: 6, description: "Strong adherence to type interfaces, generic utilities, asynchronous patterns, and modern state-management integration." },
-  { name: "React.js Core", category: "Frontend", level: 88, years: "2 years", projectsCount: 12, description: "Creating declarative, state-driven interfaces with custom hook flows, Context API, dynamic styling, and optimal render passes." },
+  { name: "TypeScript", category: "Languages", level: 85, years: "1.5 years", projectsCount: 8, description: "Strong adherence to type interfaces, generic utilities, asynchronous patterns, and modern state-management integration." },
   { name: "Tailwind CSS", category: "Frontend", level: 95, years: "2.5 years", projectsCount: 22, description: "Expert in complex fluid flexbox/grid layout design, fully responsive custom layouts, transition states, and micro-animations." },
-  { name: "Canvas 2D API", category: "Frontend", level: 90, years: "1.5 years", projectsCount: 4, description: "Used for procedural high-performance graphics engines, physics particles, and frame loops (RequestAnimationFrame)." },
-  { name: "Git & GitHub", category: "Dev Tools", level: 88, years: "3 years", projectsCount: 30, description: "Skilled in feature-branch version workflows, code reviews, collaborative pull requests, release tagging, and standard CI/CD." },
-  { name: "SQL & Databases", category: "Dev Tools", level: 80, years: "2 years", projectsCount: 8, description: "Familiar with relational schemas, transactional queries, indexing, and connecting databases with REST pipelines." },
 ];
 
 export default function SkillsVisualizer() {
@@ -85,28 +89,41 @@ export default function SkillsVisualizer() {
 
             {/* Quick click items */}
             <div className="grid grid-cols-2 gap-2.5 mb-6">
-              {DETAILED_SKILLS.map((skill) => (
-                <button
-                  key={skill.name}
-                  onClick={() => setSelectedSkill(skill)}
-                  className={`px-4 py-3 rounded-xl border font-mono text-xs text-left transition-all flex items-center justify-between ${
-                    selectedSkill.name === skill.name
-                      ? "bg-neon-cyan/5 border-neon-cyan/40 text-white shadow-[0_0_15px_rgba(6,182,212,0.15)]"
-                      : "bg-white/[0.01] border-white/5 text-neutral-400 hover:bg-white/[0.03] hover:text-white"
-                  }`}
-                >
-                  <span>{skill.name}</span>
-                  <div className={`w-1.5 h-1.5 rounded-full ${selectedSkill.name === skill.name ? 'bg-neon-cyan animate-pulse' : 'bg-neutral-700'}`} />
-                </button>
-              ))}
+              {DETAILED_SKILLS.map((skill) => {
+                const icon = getTechIcon(skill.name, "w-4 h-4");
+                const isSelected = selectedSkill.name === skill.name;
+                return (
+                  <button
+                    key={skill.name}
+                    onClick={() => setSelectedSkill(skill)}
+                    className={`px-3.5 py-2.5 rounded-xl border font-mono text-xs text-left transition-all flex items-center justify-between gap-2 ${
+                      isSelected
+                        ? "bg-neon-cyan/10 border-neon-cyan/50 text-white shadow-[0_0_15px_rgba(6,182,212,0.2)]"
+                        : "bg-white/[0.01] border-white/5 text-neutral-400 hover:bg-white/[0.03] hover:text-white"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 overflow-hidden">
+                      {icon && <span className="shrink-0">{icon}</span>}
+                      <span className="truncate">{skill.name}</span>
+                    </div>
+                    <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-neon-cyan animate-pulse' : 'bg-neutral-700'}`} />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
           {/* Diagnostic Display Card */}
           <div className="p-5 rounded-2xl bg-neutral-900/60 border border-white/5 animate-[scale-slide-up_0.3s_ease_forwards]">
-            <span className="font-mono text-[9px] text-neon-cyan uppercase tracking-widest block font-bold border-b border-white/5 pb-2 mb-3">
-              DIAGNOSTIC TELEMETRY // {selectedSkill.name.toUpperCase()}
-            </span>
+            <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-3">
+              <span className="font-mono text-[9px] text-neon-cyan uppercase tracking-widest block font-bold">
+                DIAGNOSTIC TELEMETRY // {selectedSkill.name.toUpperCase()}
+              </span>
+              <div className="flex items-center gap-1.5">
+                {getTechIcon(selectedSkill.name, "w-4 h-4")}
+                <span className="font-mono text-[9px] text-neutral-400">{selectedSkill.category}</span>
+              </div>
+            </div>
 
             <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-4">
               {selectedSkill.description}
