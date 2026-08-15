@@ -23,12 +23,20 @@ export default function TerminalConsole() {
   const [hackLog, setHackLog] = useState<string[]>([]);
   
   const terminalEndRef = useRef<HTMLDivElement | null>(null);
+  const terminalBodyRef = useRef<HTMLDivElement | null>(null);
   const matrixCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const hackTimerRef = useRef<any>(null);
+  const isFirstMount = useRef<boolean>(true);
 
-  // Auto-scroll to bottom of command history
+  // Auto-scroll internal terminal container (not whole browser window) on command history update
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
   }, [history, hackLog, isHackingActive]);
 
   // Falling Matrix Rain effect
@@ -272,7 +280,7 @@ export default function TerminalConsole() {
       </div>
 
       {/* Terminal Work Body */}
-      <div className="relative w-full h-[calc(100%-48px)] p-6 overflow-y-auto font-mono text-xs sm:text-sm leading-relaxed text-emerald-400">
+      <div ref={terminalBodyRef} className="relative w-full h-[calc(100%-48px)] p-6 overflow-y-auto font-mono text-xs sm:text-sm leading-relaxed text-emerald-400">
         
         {/* Falling matrix code rain mode overlay */}
         {isMatrixActive && (
@@ -355,8 +363,7 @@ export default function TerminalConsole() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="w-full bg-transparent outline-none border-none text-white font-mono caret-electric-glow"
-            placeholder="type 'help'..."
-            autoFocus
+            placeholder="type 'help' or 'skills'..."
           />
         </form>
       </div>

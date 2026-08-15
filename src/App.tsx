@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
@@ -30,10 +30,30 @@ import { Terminal } from "lucide-react";
 export default function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    // Prevent browser from auto-scrolling to cached scroll position on initial load
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    // If no explicit hash in URL, ensure we start at the very top (Hero/Home)
+    if (!window.location.hash || window.location.hash === "#" || window.location.hash === "#home") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+    }
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    if (!window.location.hash || window.location.hash === "#" || window.location.hash === "#home") {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+      }, 10);
+    }
+  };
+
   return (
     <ToastProvider>
       {isLoading ? (
-        <LoadingScreen onComplete={() => setIsLoading(false)} />
+        <LoadingScreen onComplete={handleLoadingComplete} />
       ) : (
         <div className="relative min-h-screen bg-[#050816] text-white selection:bg-electric-blue/30 selection:text-white">
           {/* Custom Mouse Cursor (Desktop/Large Screens) */}

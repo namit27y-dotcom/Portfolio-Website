@@ -56,10 +56,31 @@ export default function Navbar() {
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       if (isProgrammaticScroll.current) return;
+      if (window.scrollY < 120) {
+        setActiveSection("home");
+        return;
+      }
 
-      const intersectingEntry = entries.find((entry) => entry.isIntersecting);
-      if (intersectingEntry) {
-        setActiveSection(intersectingEntry.target.id);
+      const intersectingEntries = entries.filter((entry) => entry.isIntersecting);
+      if (intersectingEntries.length > 0) {
+        // Pick the intersecting entry closest to the vertical center of the viewport
+        let bestEntry = intersectingEntries[0];
+        let minDistanceToCenter = Infinity;
+        const viewportCenter = window.innerHeight / 2;
+
+        intersectingEntries.forEach((entry) => {
+          const rect = entry.target.getBoundingClientRect();
+          const elementCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(elementCenter - viewportCenter);
+          if (distance < minDistanceToCenter) {
+            minDistanceToCenter = distance;
+            bestEntry = entry;
+          }
+        });
+
+        if (bestEntry && bestEntry.target.id) {
+          setActiveSection(bestEntry.target.id);
+        }
       }
     };
 
